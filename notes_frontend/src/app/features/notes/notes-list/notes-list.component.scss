@@ -1,0 +1,108 @@
+.notes-wrap {
+  display: grid;
+  gap: 1rem;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .75rem;
+  gap: .75rem;
+  position: sticky;
+  top: 0.5rem;
+  z-index: 5;
+  background: rgba(255,255,255,0.8);
+  border: 1px solid #e5e7eb;
+  backdrop-filter: blur(6px);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.chip {
+  padding: .4rem .65rem;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all var(--transition);
+}
+.chip:hover { border-color: var(--color-primary); }
+.chip.active {
+  background: #eff6ff;
+  border-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+@media (min-width: 700px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1100px) {
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.note {
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+}
+
+.note-header {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.title {
+  flex: 1;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.title:hover { color: var(--color-primary); }
+
+.star {
+  border: none;
+  background: #fff7ed;
+  color: #f59e0b;
+  border-radius: 10px;
+  padding: .35rem .5rem;
+  cursor: pointer;
+  transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+  border: 1px solid #fed7aa;
+}
+.star:hover { transform: translateY(-1px); }
+.star.active { background: #f59e0b; color: #111827; box-shadow: 0 6px 16px rgba(245,158,11,.25); }
+
+.preview {
+  margin-top: .5rem;
+  color: #374151;
+  line-height: 1.45;
+  min-height: 2.2rem;
+}
+
+.tags {
+  margin-top: .5rem;
+  display: flex;
+  gap: .35rem;
+  flex-wrap: wrap;
+}
+
+.note-footer {
+  margin-top: .75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actions .danger { color: var(--color-error); }

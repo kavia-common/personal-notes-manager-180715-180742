@@ -1,0 +1,10 @@
+.top {
+  border: 1px solid #e5e7eb;
+  padding: .5rem;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 900px) {
+  .top { display: flex; position: sticky; top: 0; z-index: 15; background: rgba(255,255,255,0.85); backdrop-filter: blur(6px); }
+}

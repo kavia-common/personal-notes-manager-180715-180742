@@ -1,0 +1,58 @@
+<section class="notes-wrap">
+  <div class="toolbar card">
+    <div class="left">
+      <input
+        class="input"
+        placeholder="Search notes..."
+        [value]="query"
+        (input)="onSearch(($any($event.target)?.value || ''))"
+      />
+    </div>
+    <div class="right">
+      <a class="btn btn-primary" [routerLink]="newNoteLink()">+ Add Note</a>
+    </div>
+  </div>
+
+  <div class="filters">
+    <button class="chip" [class.active]="activeTag===null" (click)="selectTag(null)">All</button>
+    <button
+      class="chip"
+      *ngFor="let tag of tags()"
+      [class.active]="activeTag===tag"
+      (click)="selectTag(tag)"
+    >
+      #{{ tag }}
+    </button>
+  </div>
+
+  <div *ngIf="filteredNotes().length === 0" class="empty">
+    <app-empty-state
+      title="No notes yet"
+      subtitle="Create your first note to get started."
+      ctaLabel="Create note"
+      [routerLink]="newNoteLink()"
+    />
+  </div>
+
+  <div class="grid" *ngIf="filteredNotes().length > 0">
+    <article class="card note" *ngFor="let n of filteredNotes()">
+      <div class="note-header">
+        <a [routerLink]="editLink(n.id)" class="title">{{ n.title || 'Untitled' }}</a>
+        <button class="star" [class.active]="n.starred" (click)="toggleStar(n.id)" aria-label="Toggle favorite">
+          <span>★</span>
+        </button>
+      </div>
+      <p class="preview">{{ preview(n.content) }}</p>
+      <div class="tags">
+        <span class="badge" *ngFor="let t of n.tags">#{{ t }}</span>
+      </div>
+      <div class="note-footer">
+        <span class="small">Updated {{ fmtDate(n.updatedAt) }}</span>
+        <div class="actions">
+          <a class="btn btn-ghost" [routerLink]="editLink(n.id)">Edit</a>
+          <button class="btn btn-ghost danger" (click)="delete(n.id)">Delete</button>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

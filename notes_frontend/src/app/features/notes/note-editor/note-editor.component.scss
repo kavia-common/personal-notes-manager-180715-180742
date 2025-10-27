@@ -1,0 +1,40 @@
+.editor {
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.form {
+  margin-top: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: .35rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+.link:hover { text-decoration: underline; }

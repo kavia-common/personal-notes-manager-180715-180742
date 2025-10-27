@@ -1,0 +1,15 @@
+<div class="chip-input card">
+  <div class="chips">
+    <span class="badge" *ngFor="let t of tags">
+      #{{ t }}
+      <button class="x" (click)="removeTag(t)" aria-label="Remove tag">×</button>
+    </span>
+    <input
+      class="field"
+      [value]="inputValue"
+      (input)="inputValue = ($any($event.target)?.value || '')"
+      (keydown)="onKeydown($event)"
+      placeholder="Type and press Enter"
+    />
+  </div>
+</div>

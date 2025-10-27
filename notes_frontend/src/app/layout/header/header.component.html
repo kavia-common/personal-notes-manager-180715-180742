@@ -1,0 +1,13 @@
+<header class="top card">
+  <div class="left">
+    <input
+      class="input"
+      placeholder="Search notes..."
+      [value]="query"
+      (input)="onSearch(($any($event.target)?.value || ''))"
+    />
+  </div>
+  <div class="right">
+    <a class="btn btn-primary" routerLink="/notes/new">+ Add Note</a>
+  </div>
+</header>

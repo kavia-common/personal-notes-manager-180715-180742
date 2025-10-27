@@ -1,0 +1,28 @@
+<aside class="side card">
+  <div class="brand">
+    <div class="logo">🧭</div>
+    <div class="name">
+      <h1>Notes</h1>
+      <p class="small">Ocean Professional</p>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <a class="link" (click)="viewAll()">All Notes</a>
+    <a class="link" (click)="viewStarred()">Starred</a>
+    <a class="link" routerLink="/notes/new">+ New Note</a>
+  </nav>
+
+  <hr class="divider" />
+
+  <div class="tags">
+    <h3 class="section-title">Tags</h3>
+    <div class="tag-list">
+      <button class="tag" *ngFor="let t of tags()" (click)="filterByTag(t)">#{{ t }}</button>
+    </div>
+  </div>
+
+  <div class="foot small">
+    <span>Local only • v1</span>
+  </div>
+</aside>
